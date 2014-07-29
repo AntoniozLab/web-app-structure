@@ -1,0 +1,24 @@
+{
+  "name": "Nombre de la App",
+  "version": "0.0.1",
+  "authors": [
+    "Juan Cahuana <jcahuanam@gmail.com>"
+  ],
+  "description": "Juego html5",
+  "keywords": [
+    "",
+    ""
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1"
+  }
+}
