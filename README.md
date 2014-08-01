@@ -15,8 +15,6 @@ Estructura básica para empezar a desarrollar una aplicación web. Para ello usa
 
 <a href="http://nodejs.org/" target="_blank">node</a>
 
-Para empezar debemos ejecutar el siguiente comando.
-
 <h2>Instalación de dependencias</h2>
 
 npm install
