@@ -1,5 +1,5 @@
 {
-  "name": "Nombre de la App",
+  "name": "nombre-de-proyecto",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -29,6 +29,8 @@
     "gulp-connect": "^2.0.5",
     "gulp-strip-debug": "^0.3.0",
     "gulp-tinypng": "^1.0.2",
-    "gulp-uglify": "^0.3.1"
+    "gulp-uglify": "^0.3.1",
+    "nib": "^1.0.3",
+    "css2stylus": "^0.1.3"
   }
 }

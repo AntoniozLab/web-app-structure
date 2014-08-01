@@ -1,4 +1,5 @@
-var gulp = require('gulp'), //Gulp
+var nib = require('nib'),
+	gulp = require('gulp'), //Gulp
 	notify = require("gulp-notify"), //Notificar en el computador, se necesita tener instalado growl -> http://growl.info/thirdpartyinstallations
 	jade = require('gulp-jade'), //Compilar Jade
 	prefix = require('gulp-autoprefixer'), //Autoprefixer de CSS
@@ -82,7 +83,7 @@ gulp.task('css', function(){
 	}else{
 	//Desarrollo
 
-		watch({glob: './stylus/*.styl'}, function(end){
+		watch({glob: './stylus/*.styl'}, function(){
 			gulp.src('./stylus/*.min.styl')
 				.pipe(plumber({
 					errorHandler: notify.onError("Error: <%= error.message %>")
@@ -159,30 +160,34 @@ gulp.task('js', function () {
     Fuentes
     ========================================================================== */
 gulp.task('fonts', function(){
+
+	var path = prodPath + 'fonts';
 	gulp.src('./app/fonts/**/*')
 		.pipe(changed(path))
 		.pipe(image())
-		.pipe(gulp.dest(prodPath + 'fonts'));
+		.pipe(gulp.dest(path));
 });
 
 /*  ==========================================================================
     Archivos JPG
     ========================================================================== */
 gulp.task('jpg', function(){
+	var path = prodPath + 'img';
 	gulp.src('./app/img/*.jpg')
 		.pipe(changed(path))
 		.pipe(image())
-		.pipe(gulp.dest(prodPath + 'img'));
+		.pipe(gulp.dest(path));
 });
 
 /*  ==========================================================================
     Archivos PNG
     ========================================================================== */
 gulp.task('png', function(){
+	var path = prodPath + 'img';
 	gulp.src('./app/img/*.png')
 		.pipe(changed(path))
 		.pipe(imagemin("CHD9zVb-3FcqW3C0kzIX_fR3L-UArybO"))
-		.pipe(gulp.dest(prodPath + 'img'));
+		.pipe(gulp.dest(path));
 });
 
 
