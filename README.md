@@ -1,20 +1,20 @@
-webapp-structure
-================
+# Estructura base para aplicaciones web (FrontEnd)
+Proponemos esta estructura para trabajar inicialmente FrontEnd, pero luego sbre la misma podemos ir agregando nuestro trabajo del lado BackEnd y tenerlos separados y ordenados.
 
-Estructura básica para empezar a desarrollar una aplicación web. Para ello usaremos herramientas como:
+## Se hace uso de herramientas como:
 
-<ul>
-  <li>Jade.</li>
-  <li>Stylus.</li>
-  <li>Bower.</li>
-  <li>Gulp.</li>
-</ul>
+* Stylus
+* Jade
+* Gulp
+* Bower
 
+## Requisitos previos
 
-<h2>Requerimientos previos</h2>
+* Tener instalado Node: <a href="http://nodejs.org/" target="_blank">node</a>
+* Tener instalado Python, pueden descargarlo por ejemplo desde esta dirección : <a href="http://www.activestate.com/activepython" target="_blank">Active Python</a>
 
-<a href="http://nodejs.org/" target="_blank">node</a>
+## Empezar el flujo de trabajo
 
-<h2>Instalación de dependencias</h2>
+1. Para empezar a trabajar, sólo hace falta correr el comando: **npm install** en la consola. Se instalará todos los paquetes npm necesarios y posteriormente todos las librerías de bower.
 
-npm install
+2. Como segundo paso, debemos correr el comando **npm install -g bower**, para tener bower de manera global.
