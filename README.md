@@ -1,5 +1,5 @@
 # Estructura base para aplicaciones web (FrontEnd)
-Proponemos esta estructura para trabajar inicialmente FrontEnd, pero luego sbre la misma podemos ir agregando nuestro trabajo del lado BackEnd y tenerlos separados y ordenados.
+Proponemos esta estructura para trabajar inicialmente FrontEnd, pero luego sobre la misma podemos ir agregando nuestros archivos y carpetas de nuestro trabajo del lado BackEnd.
 
 ## Se hace uso de herramientas como:
 
