@@ -1,0 +1,49 @@
+include mixins.jade
+doctype html
+html(lang='es')
+    head
+        //- 1. HTML meta tag para la verificación en Webmaster Tools
+        meta(name='google-site-verification', content='')
+
+        //- 2. Meta para reconocer tíldes y ñ
+        meta(charset='utf-8')
+
+        //- 3. Sustituir el motor de renderizado por Chrome(en caso de tenerse instalado)
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+
+        //- 4. Título por defecto
+        block title
+            title Título de mi sitio
+
+        //- 5. Descripción por defecto
+        block description
+            meta(name='description', content='Esto es una descripción personalizada')
+
+        //- 6. Meta para el reponsive
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+
+        //- 7. Desactivar la detección automática de números de teléfono en smartphones
+        meta(name='format-detection', content='telephone=no')
+
+        //- 8. Autor del sitio
+        meta(name='author', content='nombre del autor')
+
+        //- 9. Favicon
+        link(href='favicon.ico', rel='shortcut icon', type='image/x-icon')
+
+        //- 10. Estilos por defecto
+        block styles
+
+        //- 11. JS para navegadores menores que IE9
+        +ie('if lt IE 9')
+            script(src="js/vendor/html5-3.6-respond-1.1.0.min.js")
+
+        //- 12. Scripts en la cabecera
+        block scripts
+
+    body
+        //- 13. Contenido de la página
+        block content
+
+    //- 14. Archivos Javascript
+    block javascript
