@@ -1,6 +1,6 @@
 var nib = require('nib'), //Agrega prefijos de CSS de manera automática
 	gulp = require('gulp'), //Gulp
-	notify = require("gulp-notify"), //Notificar en el computador, se necesita tener instalado growl -> http://growl.info/thirdpartyinstallations
+	notify = require("gulp-notify"), //Notificar en el computador
 	jade = require('gulp-jade'), //Compilar Jade
 	prefix = require('gulp-autoprefixer'), //Autoprefixer de CSS
 	stylus = require('gulp-stylus'), //Compilar stylus
@@ -16,16 +16,15 @@ var nib = require('nib'), //Agrega prefijos de CSS de manera automática
 	argv = require('yargs').argv; //Permite pasar argumentos vía consola del sistema
 
 
-/*  ==========================================================================
-    RUTAS DE DESARROLLO Y PRODUCCIÓN
-    ========================================================================== */
+/* ===========================================================================
+RUTAS DE DESARROLLO Y PRODUCCIÓN
+=========================================================================== */
 var devPath = './app/frontend/';
 var prodPath = './public/frontend/';
 
-
-/*  ==========================================================================
-    SERVIDOR DE DESARROLLO
-    ========================================================================== */
+/* ===========================================================================
+SERVIDOR DE DESARROLLO
+=========================================================================== */
 gulp.task('server-dev', function() {
   connect.server({
     root: 'app/frontend/',
@@ -33,19 +32,18 @@ gulp.task('server-dev', function() {
   });
 });
 
-/*  ==========================================================================
-		SERVIDOR DE PRODUCCIÓN
-		========================================================================== */
+/* ===========================================================================
+SERVIDOR DE PRODUCCIÓN
+=========================================================================== */
 gulp.task('server-prod', function () {
 	connect.server({
 		root: 'public/frontend/'
 	});
 });
 
-
-/*  ==========================================================================
-    HTML
-    ========================================================================== */
+/* ===========================================================================
+HTML
+=========================================================================== */
 gulp.task('html', function(){
 
 	if(argv.production){
@@ -85,9 +83,9 @@ gulp.task('html', function(){
 });
 
 
-/*  ==========================================================================
-    CSS
-    ========================================================================== */
+/* ===========================================================================
+CSS
+=========================================================================== */
 gulp.task('css', function(){
 	var destPath;
 
@@ -122,17 +120,16 @@ gulp.task('css', function(){
 	}
 });
 
-
-/*  ==========================================================================
-    JAVASCRIPT
-    ========================================================================== */
+/* ===========================================================================
+JAVASCRIPT
+=========================================================================== */
 gulp.task('js', function () {
 	var destPath;
 
 	// Archivos a concatenar para la página del home
 	var filesHome = [
 		'./bower_components/jquery/dist/jquery.js',
-		'./app/js/home.js'
+		'./app/frontend/js/home.js'
 	];
 
 	if(argv.production){
@@ -160,7 +157,7 @@ gulp.task('js', function () {
 	destPath = devPath + 'js/';
 
 		//Página Home
-		gulp.src(['./app/js/home.js'])
+		gulp.src(['./app/frontend/js/home.js'])
 			.pipe(watch({ emit: 'all' }, function(){
 				gulp.src(filesHome)
 					.pipe(concat('home.min.js'))
@@ -168,13 +165,13 @@ gulp.task('js', function () {
 					.pipe(connect.reload())
 					.pipe(notify("JS Desarrollo: <%= file.relative %>!"));
 			}));
-	};
+	}
 
 });
 
-/*  ==========================================================================
-		IMAGÉNES EXCEPTO ARCHIVOS PNG
-		========================================================================== */
+/* ===========================================================================
+IMAGÉNES EXCEPTO ARCHIVOS PNG
+=========================================================================== */
 gulp.task('images', function(){
 	var destPath = prodPath + 'img/';
 	gulp.src([devPath+'img/*', '!'+devPath+'img/*.png'])
@@ -183,9 +180,9 @@ gulp.task('images', function(){
 		.pipe(gulp.dest(destPath));
 });
 
-/*  ==========================================================================
-		ARCHIVOS PNG
-		========================================================================== */
+/* ===========================================================================
+IMÁGENES PNG
+=========================================================================== */
 gulp.task('png', function(){
 
 	//Path destino
@@ -197,11 +194,9 @@ gulp.task('png', function(){
 		.pipe(gulp.dest(destPath));
 });
 
-
-
-/*  ==========================================================================
-    COPIAR ARCHIVOS
-    ========================================================================== */
+/* ===========================================================================
+COPIAR ARCHIVOS
+=========================================================================== */
 gulp.task('copy', function(){
 	var destPath = prodPath + 'fonts/';
 	//FUENTES
@@ -215,9 +210,9 @@ gulp.task('copy', function(){
 	//OTROS
 });
 
-/*  ==========================================================================
-    TASK DE EJEMPLO PARA QUE CREES EL TUYO :D
-    ========================================================================== */
+/* ===========================================================================
+TASK DE EJEMPLO PARA QUE CREES EL TUYO :D
+=========================================================================== */
 gulp.task('nombre-del-task', function(){
 	var destPath = prodPath + 'carpeta/';
 
@@ -227,9 +222,9 @@ gulp.task('nombre-del-task', function(){
 		.pipe(gulp.dest(destPath));
 });
 
-/*  ==========================================================================
-		TAREAS POR DEFECTO
-		========================================================================== */
+/* ===========================================================================
+TAREAS POR DEFECTO
+=========================================================================== */
 gulp.task('default', function(){
 
 	gulp.start('html');
