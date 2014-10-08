@@ -25,12 +25,12 @@
     "gulp-jade": "^0.6.0",
     "gulp-notify": "^1.8.0",
     "gulp-plumber": "^0.6.3",
+    "gulp-size": "^1.1.0",
     "gulp-strip-debug": "^0.3.0",
     "gulp-stylus": "^1.0.2",
     "gulp-tinypng": "^1.0.2",
     "gulp-uglify": "^0.3.1",
     "gulp-watch": "^0.6.6-1",
-    "nib": "^1.0.3",
     "yargs": "^1.2.6"
   }
 }
