@@ -2,44 +2,45 @@ extends ./includes/base.jade
 
 //- META TÍTULO
 block title
-    title Título personalizado
+  title Título personalizado
 
 //- META DESCRIPCIÓN
 block description
-    meta(name='description', content='Esto es una descripción personalizada')
+  meta(name='description', content='Esto es una descripción personalizada')
 
 //- CSS
 block styles
-    link(rel='stylesheet', href='css/home.min.css')
+  link(rel='stylesheet', href='css/home.min.css')
 
 //- SCRIPTS JS
 block scripts
-    // Google Analytics: change UA-XXXXX-X to be your site's ID.
-    script.
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-27680990-1');ga('send','pageview');
+  // Google Analytics: change UA-XXXXX-X to be your site's ID.
+  script.
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-27680990-1');ga('send','pageview');
 
 //- CONTENIDO DE <BODY>
 block content
 
-    //- HEADER
-    header.Header
-      figure.Header-imageContainer
-        img.Header-image(src="img/logo.png", alt="HTML5")
-    //- MAIN
-    div.Main
-      div.Main-bienvenida
-        h1.Main-title Bienvenidos
-      div.Main-preloader
-        img(src="img/preloader.gif", alt="")
+  //- HEADER
+  header.Header
+    figure.Header-imageContainer
+      img.Header-image(src="img/logo.png", alt="HTML5")
 
-    //- FOOTER
-    footer#footer.Footer
+  //- MAIN
+  div.Main
+    div.Main-bienvenida
+      h1.Main-title Bienvenidos
+    div.Main-preloader
+      img(src="img/preloader.gif", alt="")
+
+  //- FOOTER
+  footer#footer.Footer
 
 //- ARCHIVOS JAVASCRIPT AL FINAL
 block javascript
-    script(src='js/home.min.js')
+  script(src='js/home.min.js')
