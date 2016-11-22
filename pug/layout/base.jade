@@ -1,0 +1,40 @@
+include ../config/config.jade
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title #{site_title}
+    meta(name="description", content="#{site_description}")
+    meta(name="author", content="#{site_author}")
+    
+    //- Archivos CSS
+    block _css-files_
+  body
+    .OuterContainer
+      include ./header.jade
+      
+      include ./main-content.jade
+        //- Contenido variable
+        block _main-content_
+      
+      include ./footer.jade
+      
+    //- Archivos Javascript
+    //Archivos de terceros
+    script(src='js/vendor/jquery.min.js')
+    script(src='js/vendor/jquery.validate.min.js')
+    script(src='js/vendor/slick.min.js')
+    script(src='js/vendor/kalypto.min.js')
+    
+    //Scripts propios
+    script(src="js/modules/main-content.js")
+    script(src="js/modules/main-nav.js")
+    script(src="js/modules/b2b-nav.js")
+    script(src="js/modules/buscador-entidades.js")
+    script(src="js/modules/slide-financieras.js")
+    script(src="js/modules/ticket.js")
+    script(src="js/modules/envio-instrucciones.js")
+    script(src="js/app.js")
+    block _js-files_
