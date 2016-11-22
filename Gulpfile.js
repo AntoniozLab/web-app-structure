@@ -2,9 +2,9 @@
 
 var gulp       = require('gulp'); //Gulp
 var notify     = require('gulp-notify'); //Notificar en el computador
-var jade       = require('gulp-jade'); //Compilar Jade
+var sass       = require('gulp-sass'); //Compilar Sass
+var pug        = require('gulp-pug'); //Compilar Pug
 var prefix     = require('gulp-autoprefixer'); //Autoprefixer de CSS
-var stylus     = require('gulp-stylus'); //Compilar stylus
 var changed    = require('gulp-changed'); //Verificar si el archivo ha cambiando para aplicarle o no un pipe
 var image      = require('gulp-image'); //Optimiza imágenes PNG, JPEG, GIF y SVG, pero no lo usaremos para archivos PNG, a cambio usaremos tinypng
 var imagemin   = require('gulp-tinypng');//Optimiza archivos PNG con mayor eficiencia, pero se necesita de un token. Para más info visitar -> https://tinypng.com
