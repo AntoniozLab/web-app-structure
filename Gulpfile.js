@@ -1,31 +1,25 @@
 'use strict';
 
-var gulp        = require('gulp');
-
-// CSS
-var sass        = require('gulp-sass'); //Compilar Sass
-var cleanCSS    = require('gulp-clean-css');
-
-// HTML
-var pug         = require('gulp-pug'); //Compilar Pug
-var htmlmin     = require('gulp-htmlmin'); //Comprimir HTML
-
-// Imágenes
-var image       = require('gulp-image'); //Optimiza imágenes PNG, JPEG, GIF y SVG, pero no lo usaremos para archivos PNG, a cambio usaremos tinypng
-var imagemin    = require('gulp-tinypng');//Optimiza archivos PNG con mayor eficiencia, pero se necesita de un token. Para más info visitar -> https://tinypng.com
-
-// JS
-var uglify      = require('gulp-uglify'); //Optimizar archivos javascript
-var stripDebug  = require('gulp-strip-debug'); //Eliminar comentarios y comandos como console.log
-var concat      = require('gulp-concat'); //Concatenar
-
-// Utilidades
-var changed     = require('gulp-changed'); //Verificar si el archivo ha cambiando para aplicarle o no un pipe
-var plumber     = require('gulp-plumber'); //Seguir ejecutando los pipe de gulp aunque exista un error
-var size        = require('gulp-size');
-
-// Servidor livereload
-var browserSync = require('browser-sync').create();
+var gulp      = require('gulp'),
+	// CSS
+	sass        = require('gulp-sass'), //Compilar Sass
+	cleanCSS    = require('gulp-clean-css'),
+	// HTML
+	pug         = require('gulp-pug'), //Compilar Pug
+	htmlmin     = require('gulp-htmlmin'), //Comprimir HTML
+	// Imágenes
+	image       = require('gulp-image'), //Optimiza imágenes PNG, JPEG, GIF y SVG, pero no lo usaremos para archivos PNG, a cambio usaremos tinypng
+	imagemin    = require('gulp-tinypng'),//Optimiza archivos PNG con mayor eficiencia, pero se necesita de un token. Para más info visitar -> https://tinypng.com
+	// JS
+	uglify      = require('gulp-uglify'), //Optimizar archivos javascript
+	stripDebug  = require('gulp-strip-debug'), //Eliminar comentarios y comandos como console.log
+	concat      = require('gulp-concat'), //Concatenar
+	// Utilidades
+	changed     = require('gulp-changed'), //Verificar si el archivo ha cambiando para aplicarle o no un pipe
+	plumber     = require('gulp-plumber'), //Seguir ejecutando los pipe de gulp aunque exista un error
+	size        = require('gulp-size'),
+	// Servidor livereload
+	browserSync = require('browser-sync').create();
 
 // Rutas de desarrollo y producción
 var devPath = './app/';
@@ -36,7 +30,7 @@ gulp.task('server-dev', function() {
 
 	browserSync.init({
 		server: {
-			baseDir: "./app"
+			baseDir: './app'
 		}
 	});
 });
@@ -89,7 +83,7 @@ var homeFiles = [
 	'./app/js/home.js'
 ];
 
-// Javascript desarrollo
+// Javascript
 gulp.task('js-dev', function () {
 
 	//Página Home
@@ -102,7 +96,7 @@ gulp.task('js-dev', function () {
 
 });
 
-// Javascript producción
+// Javascript
 gulp.task('js', function () {
 
 	//Página Home
@@ -141,12 +135,16 @@ gulp.task('png', function(){
 
 // Copiar archivos
 gulp.task('copy', function(){
-	var destPath = prodPath + 'fonts/';
 
 	// Fuentes
 	gulp.src(devPath + 'fonts/**/*')
-		.pipe(changed(destPath))
-		.pipe(gulp.dest(destPath));
+		.pipe(changed(prodPath + 'fonts/'))
+		.pipe(gulp.dest(prodPath + 'fonts/'));
+
+	// Favicon
+	gulp.src(devPath + '**/*.ico')
+		.pipe(changed(prodPath))
+		.pipe(gulp.dest(prodPath));
 
 });
 
@@ -166,7 +164,6 @@ gulp.task('prod', function(){
 	gulp.start('html');
 	gulp.start('js');
 	gulp.start('css');
-  gulp.start('server-prod');
 	gulp.start('copy');
 	gulp.start('images');
 	gulp.start('png');
