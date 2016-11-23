@@ -16,25 +16,10 @@ html
       include ./header.pug
 
       include ./main-content.pug
-        //- Contenido variable
-        block _main-content_
 
       include ./footer.pug
 
     //- Archivos Javascript
     //Archivos de terceros
-    script(src='js/vendor/jquery.min.js')
-    script(src='js/vendor/jquery.validate.min.js')
-    script(src='js/vendor/slick.min.js')
-    script(src='js/vendor/kalypto.min.js')
-
-    //Scripts propios
-    script(src="js/modules/main-content.js")
-    script(src="js/modules/main-nav.js")
-    script(src="js/modules/b2b-nav.js")
-    script(src="js/modules/buscador-entidades.js")
-    script(src="js/modules/slide-financieras.js")
-    script(src="js/modules/ticket.js")
-    script(src="js/modules/envio-instrucciones.js")
-    script(src="js/app.js")
+    //- script(src='js/vendor/jquery.min.js')
     block _js-files_
