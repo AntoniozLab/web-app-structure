@@ -1,0 +1,12 @@
+.Header {
+  background-color: orange;
+  color: #fff;
+  padding: 5px; }
+
+.MainContent {
+  background-color: #bbb;
+  padding: 5px; }
+
+.Footer {
+  background-color: orange;
+  padding: 5px; }

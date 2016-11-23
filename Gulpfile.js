@@ -23,25 +23,39 @@ RUTAS DE DESARROLLO Y PRODUCCIÓN
 var devPath = './app/';
 var prodPath = './public/';
 
-/* ===========================================================================
-SERVIDOR DE DESARROLLO
-=========================================================================== */
+/***********************************************************************
+ * Run development server
+***********************************************************************/
 gulp.task('server-dev', function() {
   connect.server({
     root: 'app/',
     livereload: true
   });
-  gulp.src('').pipe(notify('Servidor de Desarrollo Listo'));
+  gulp.src('').pipe(notify('Dev server'));
 });
 
-/* ===========================================================================
-SERVIDOR DE PRODUCCIÓN
-=========================================================================== */
+
+/***********************************************************************
+ * Run production server
+***********************************************************************/
 gulp.task('server-prod', function () {
 	connect.server({
 		root: 'public/'
 	});
   gulp.src('').pipe(notify('Servidor de Producción Listo'));
+});
+
+/***********************************************************************
+ * Process Pug files
+***********************************************************************/
+gulp.task('pug', function(){
+
+		gulp.src('./pug/pages/*.pug')
+			.pipe(plumber())
+			.pipe(pug({ pretty: true }))
+			.pipe(gulp.dest('./app/'))
+			.pipe(connect.reload())
+			.pipe(notify('Pug changes: <%= file.relative %>!'));
 });
 
 /* ===========================================================================
@@ -85,6 +99,19 @@ gulp.task('html', function(){
 
 });
 
+
+/***********************************************************************
+ * Process Sass files
+***********************************************************************/
+gulp.task('sass', function(){
+
+		gulp.src('./sass/app.scss')
+			.pipe(sass().on('error', sass.logError))
+			.pipe(gulp.dest('./app/css/'));
+			// .pipe(notify('Sass changes: <%= file.relative %>!'))
+			// .pipe(connect.reload());
+});
+
 /* ===========================================================================
 CSS
 =========================================================================== */
@@ -122,6 +149,7 @@ gulp.task('css', function(){
 		});
 	}
 });
+
 
 /* ===========================================================================
 JAVASCRIPT
@@ -232,22 +260,29 @@ gulp.task('nombre-del-task', function(){
 });
 
 /* ===========================================================================
-TAREAS POR DEFECTO
+Tareas de desarrollo
 =========================================================================== */
-gulp.task('default', function(){
+gulp.task('dev', function(){
+
+	gulp.start('server-dev');
+  gulp.watch('./pug/**/*.pug', ['pug']);
+  gulp.watch('./sass/**/*.scss', ['sass']);
+
+});
+
+/* ===========================================================================
+Tareas de producción
+=========================================================================== */
+gulp.task('prod', function(){
 
 	gulp.start('html');
 	gulp.start('js');
 	gulp.start('css');
-
-	if(!argv.production){
-		gulp.start('server-dev');
-
-	}else{
-		gulp.start('server-prod');
-		gulp.start('copy');
-		gulp.start('images');
-		gulp.start('png');
-	}
+  gulp.start('server-prod');
+	gulp.start('copy');
+	gulp.start('images');
+	gulp.start('png');
 
 });
+
+
