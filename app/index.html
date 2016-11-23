@@ -1,39 +1,26 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
   <head>
-    <meta name="google-site-verification" content="">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Título personalizado</title>
-    <meta name="description" content="Esto es una descripción personalizada">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="author" content="nombre del autor">
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="stylesheet" href="css/home.min.css"><!--[if lt IE 9]>
-    <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script><![endif]-->
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-27680990-1');ga('send','pageview');
-
-    </script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Estructura básica de aplicación Fron-End</title>
+    <meta name="description" content="Estructura básica para empezar un proyecto Front-End.">
+    <meta name="author" content="Juan Cahuana">
+    <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
+    <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-    <header class="Header">
-      <figure class="Header-imageContainer"><img src="img/logo.png" alt="HTML5" class="Header-image"></figure>
-    </header>
-    <div class="Main">
-      <div class="Main-bienvenida">
-        <h1 class="Main-title">Bienvenidos</h1>
-      </div>
-      <div class="Main-preloader"><img src="img/preloader.gif" alt=""></div>
+    <div class="OuterContainer">
+      <header class="Header">Cabecera</header>
+      <section class="MainContent">
+        <div class="Bienvenida">
+          <p>¡Bienvenidos!</p>
+        </div>
+      </section>
+      <footer class="Footer">Pie de página</footer>
     </div>
-    <footer id="footer" class="Footer"></footer>
+    <!--Archivos de terceros-->
+    <script src="js/home.min.js"></script>
   </body>
-  <script src="js/home.min.js"></script>
 </html>

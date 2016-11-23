@@ -1,5 +1,4 @@
 $(function(){
   'use strict';
-  console.log('document ready');
-
+  console.log('Ready');
 });

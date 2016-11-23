@@ -1,0 +1,17 @@
+// Breakpoints Min-Width
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: $w_desktop) { @content ; }
+  }
+  @else if $point == tablet {
+    @media (min-width: $w_tablet) { @content ; }
+  }
+  @else if $point == phablet {
+    @media (min-width: $w_phablet)  { @content ; }
+  }
+  @else if $point == mobile {
+    @media (min-width: $w_mobile)  { @content ; }
+
+  }
+}
+

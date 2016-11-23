@@ -1,0 +1,10 @@
+extends ../layout/base.pug
+
+block _css-files_
+  link(rel='stylesheet', href='css/app.css')
+
+block _main-content_
+  include ../modules/bienvenida.pug
+
+block _js-files_
+  script(src='js/home.min.js')
