@@ -1,11 +1,11 @@
 {
-  "name": "nombre-de-proyecto",
-  "version": "0.0.0",
+  "name": "web-app-structure",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node_modules/.bin/bower install"
+    "postinstall": "bower install"
   },
   "keywords": [
     "",
@@ -29,6 +29,9 @@
     "gulp-strip-debug": "^0.3.0",
     "gulp-tinypng": "^1.0.2",
     "gulp-uglify": "^0.3.1"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
   },
   "repository": "https://github.com/jcahuana/web-app-structure.git"
 }
