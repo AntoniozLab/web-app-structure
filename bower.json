@@ -1,6 +1,6 @@
 {
-  "name": "nombre-de-proyecto",
-  "version": "0.0.0",
+  "name": "web-app-structure",
+  "version": "1.0.0",
   "authors": [
     "Juan Cahuana <jcahuanam@gmail.com>"
   ],
@@ -10,7 +10,7 @@
     ""
   ],
   "license": "MIT",
-  "private": true,
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -19,6 +19,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "1.11.1"
+    "jquery": "1.11.1",
+    "normalize-scss": "normalize.scss#^6.0.0"
   }
 }
